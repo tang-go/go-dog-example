@@ -2,7 +2,10 @@ package main
 
 import (
 	"github.com/tang-go/go-dog/log"
-	"github.com/tang-go/go-dog/mysql"
+	"github.com/tang-go/go-dog/pkg/client"
+	"github.com/tang-go/go-dog/pkg/config"
+	"github.com/tang-go/go-dog/pkg/discovery"
+	"github.com/tang-go/go-dog/pkg/register"
 	"github.com/tang-go/go-dog/pkg/service"
 	"github.com/tang-go/go-dog/plugins"
 )
@@ -11,8 +14,6 @@ const (
 	//AddErr 相加失败
 	AddErr = 10001
 )
-
-var gMysql *mysql.Mysql
 
 //AddReq 管理员登录
 type AddReq struct {
@@ -34,9 +35,25 @@ func Add(ctx plugins.Context, request AddReq) (response AddRes, err error) {
 	return
 }
 
+//使用etcd为服务注册中心
 func main() {
-	//mysql 为启动服务的名称
-	ser := service.CreateService("mysql")
+	//初始化配置
+	cfg := config.NewConfig()
+	//etcd 启动etcd服务端
+	ser := service.CreateService(
+		//名称
+		"etcd",
+		//配置
+		cfg,
+		//客户端
+		client.NewClient(
+			//配置
+			cfg,
+			//使用etcd服务发现
+			discovery.NewEtcdDiscovery(cfg.GetDiscovery()),
+		),
+		//etcd服务注册插件
+		register.NewEtcdRegister(cfg.GetDiscovery()))
 	//注册RPC函数
 	ser.RPC(
 		//方法名称
@@ -50,12 +67,6 @@ func main() {
 		//方法
 		Add,
 	)
-	//初始化数据库
-	gMysql = mysql.NewMysql(ser.GetCfg())
-	//获取读数据数据库对象
-	gMysql.GetReadEngine()
-	//获取写数据库对象
-	gMysql.GetWriteEngine()
 	err := ser.Run()
 	if err != nil {
 		log.Traceln("服务退出", err.Error())
