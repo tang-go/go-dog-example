@@ -349,6 +349,10 @@ github.com/tang-go/go-dog v0.0.0-20201020072032-05dd15f8000e h1:WGLPjtIdt9y7VxQD
 github.com/tang-go/go-dog v0.0.0-20201020072032-05dd15f8000e/go.mod h1:HOYTJNH2s8Vc1Iq2/s9OafJenLwEkoBCx3+1W7Ba8N4=
 github.com/tang-go/go-dog v0.0.0-20201020075657-a19d82ea5549 h1:Vp4IiYHiV+kGPlIrXrC7/IgMK01mbcnR9250ADPXdko=
 github.com/tang-go/go-dog v0.0.0-20201020075657-a19d82ea5549/go.mod h1:HOYTJNH2s8Vc1Iq2/s9OafJenLwEkoBCx3+1W7Ba8N4=
+github.com/tang-go/go-dog v0.0.0-20201021071936-017f59234b91 h1:17JCChqWXUytgGn3HUqpMUDqgTnFQUEGLWsRjV1KCx0=
+github.com/tang-go/go-dog v0.0.0-20201021071936-017f59234b91/go.mod h1:HOYTJNH2s8Vc1Iq2/s9OafJenLwEkoBCx3+1W7Ba8N4=
+github.com/tang-go/go-dog v0.0.0-20201023083137-a3d1738e6013 h1:2sGqJOPUzC/d3lwZWcdMK+3fFj88ESlt7xW6Sw8ApPs=
+github.com/tang-go/go-dog v0.0.0-20201023083137-a3d1738e6013/go.mod h1:HOYTJNH2s8Vc1Iq2/s9OafJenLwEkoBCx3+1W7Ba8N4=
 github.com/technoweenie/multipartstreamer v1.0.1/go.mod h1:jNVxdtShOxzAsukZwTSw6MDx5eUJoiEBsSvzDU9uzog=
 github.com/timewasted/linode v0.0.0-20160829202747-37e84520dcf7/go.mod h1:imsgLplxEC/etjIhdr3dNzV3JeT27LbVu5pYWm0JCBY=
 github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5/go.mod h1:ncp9v5uamzpCO7NfCPTXjqaC+bZgJeR0sMTm6dMHP7U=
